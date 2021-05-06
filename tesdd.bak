@@ -1,0 +1,11 @@
+#lang racket
+(lambda (x y)
+(+ x y)
+)
+Donne #<procedure>
+((lambda (x y)
+(+ x y)
+)
+2 3
+)
+Donne 5

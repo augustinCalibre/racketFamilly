@@ -1,0 +1,11 @@
+#lang racket
+(define-values (r o)
+  (let ()
+    (define-local-member-name m)
+    (define c% (class object%
+                 (define/public (m) 10)
+                 (super-new)))
+    (define o (new c%))
+ 
+    (values (send o m)
+            o)))
