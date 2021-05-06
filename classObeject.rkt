@@ -1,10 +1,6 @@
 #lang racket
 
-
-
-
-
-
+;;;;;AUTHOR :AUGUSTIN GRAH
 
 (define BC '(
              Homme(toto)
@@ -36,10 +32,7 @@
       ;(define tru #t)(define false #f)
     
       (define/public (tata)(define tata #t)(write tata))
-
-     
-
-    ))
+  ))
 
 (define Homme%
   (class Femme%
@@ -48,9 +41,7 @@
       ;(define tru #t)(define false #f)
     
       (define/public (toto)(define toto #t)(write toto))
-   
-
-    ))
+   ))
 
 
 
@@ -58,13 +49,14 @@
 
 (define Famille%
   (class Homme%
-    
     (super-new)
-
-     
-     (inherit  toto)
+    (inherit  toto)
     (define (parent tata toto)
-      (if (eq? tata toto )(write #t)(write #f)))
+            (if (eq? tata toto )
+            (write #t)
+            (write #f)
+                )
+            )))
 
     
     ;;Methode femme
@@ -90,10 +82,10 @@
 ;;initialisation des hommes
 ;(send (new Femme%) tata)
 
-
+(write "**************************************")
 ;(send  (new Homme%) toto)
 
-(send  (new Famille%) parent (send(new Homme%) toto)  (send (new Femme%) tata))
+; (send  (new Famille%) parent (send(new Homme%) toto)(send (new Femme%) tata))
 
 
 
