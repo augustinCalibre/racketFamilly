@@ -25,7 +25,7 @@
     
       (define/public (tata x)(eqv? x "?" )))
       
-      ;(define tata #t)(write tata))
+      ;(define tata #t)(display tata))
   )
 
 (define Homme%
@@ -92,34 +92,75 @@
 (class object%
 (super-new)
 
+
   (define/public (pere x )
     (cond 
-    [(eq? x "toto")(write "mankou")]
-      [(eq? x "ali")(write "toto")]
-      [(eq? x "yao")(write "ali")]
-      [(eq? x "manu")(write "ali")]
-      [(eq? x "fatou")(write "ali")]
-      [(eq? x "froto")(write "mankou")]
-      [(eq? x "pépé")(write "froto")]
+    [(string=? x "toto")(display "mankou")]
+      [(string=? x "ali")(display "toto")]
+      [(string=? x "yao")(display "ali")]
+      [(string=? x "manu")(display "ali")]
+      [(string=? x "fatou")(display "ali")]
+      [(string=? x "froto")(display "mankou")]
+      [(string=? x "pépé")(display "froto")]
       [else "pas de papa"])
     
   )
   
 
   (define/public (ancetre x )
+    (display "*les ancetres de  ")(display x) (display " :      ** ") (newline)
     (cond 
-    [(eq? x "adjoua")(write "fitini,titi,toto,mankou,mamie")];a continuer avec mami 
-    [(eq? x "yao")(write "ali,toto,tata,mankou,mamie")]
-    [(eq? x "manu")(write "ali,toto,tata,mankou,mamie")]
-    [(eq? x "fatou")(write "ali,toto,tata,mankou,mamie")]
-    [(eq? x "ali")(write "toto,tata,mankou,mamie")]
-    [(eq? x "toto")(write "mankou,mamie")]
-    [(eq? x "mankou")(write "mamie")]
+    [(string=? x "adjoua")(display "fitini,titi,toto,mankou,mamie")];a continuer avec mami 
+    [(string=? x "yao")(display "ali,toto,tata,mankou,mamie")]
+    [(string=? x "manu")(display "ali,toto,tata,mankou,mamie")]
+    [(string=? x "fatou")(display "ali,toto,tata,mankou,mamie")]
+    [(string=? x "ali")(display "toto,tata,mankou,mamie")]
+    [(string=? x "toto")(display "*mankou,mamie                      **")]
+    [(string=? x "mankou")(display "mamie")]
     [else "pas d'ancetre"])
     
   )
 
+  (define/public (petitEnfants x )
+    (cond 
+    [(string=? x "mamie")(display "mankou, toto, froto, manu, ali, pépé ,titi, fitini, adjoua,mamie et fatou  ")]
+      
+      [else "pas de petits enfants"])
+    
+  )
+
+  (define/public (petitFils x )
+    (cond 
+    [(string=? x "mamie")(display "mankou, toto, froto, manu, ali, pépé")]
+      
+      [else "pas de petits enfants"]
 ))
+
+
+;;; TO-DO 1
+
+(define/public (frere x )
+    (cond 
+    [(string=? x "fatou")(display "yao, manu")]
+      
+      [else "pas de petits enfants"]
+))
+
+(define/public (neuveu x )
+
+    (cond 
+    [(string=? x "toto")(display "pepe")]
+    [(string=? x "ali")(display "fitini")]
+      
+      [else "pas de petits enfants"]
+))
+
+(define/public (cousin)
+    (display "fininiAdjoua manu fatou ")
+))
+)
+
+
   
       
 
@@ -127,7 +168,7 @@
 
 
 
-(write "**************************************")(newline)
+(display "**************************************")(newline)
 ;(send  (new Femme%) tata)
 
 ;(send (new Famille%) neuveu(send (new Homme%) toto "?")(send (new Homme%) toto "?"))
@@ -135,7 +176,9 @@
 ;(send (new Femme%) tata "?")
 
 
-(send (new ArbreGenealogique%) ancetre "ali")
+(send (new ArbreGenealogique%) ancetre (read))(newline)
+
+(display "**************************************")(newline)
 
 
 
