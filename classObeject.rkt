@@ -28,6 +28,8 @@
       ;(define tata #t)(display tata))
   )
 
+  
+
 (define Homme%
   (class object%
      (super-new)
@@ -85,7 +87,6 @@
   )
 )
 
-
 ;;construction de l'Arbre
 
 (define ArbreGenealogique%
@@ -137,11 +138,12 @@
 ))
 
 
-;;; TO-DO 1
+;;; TODO  1
 
 (define/public (frere x )
     (cond 
     [(string=? x "fatou")(display "yao, manu")]
+      
       
       [else "pas de petits enfants"]
 ))
@@ -156,7 +158,7 @@
 ))
 
 (define/public (cousin)
-    (display "fininiAdjoua manu fatou ")
+    (display "finini Adjoua manu fatou ")
 ))
 )
 
@@ -176,7 +178,7 @@
 ;(send (new Femme%) tata "?")
 
 
-(send (new ArbreGenealogique%) ancetre (read))(newline)
+(send (new Famille%) parent (send (new Homme%) toto "?")(send (new Femme%) tata "?"))(newline)
 
 (display "**************************************")(newline)
 
