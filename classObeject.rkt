@@ -3,11 +3,11 @@
 ;******************* :AUGUSTIN GRAH*********************
 ;*******************git:augustCalibre*******************
 
-(define BC '(
-             Homme(toto)
-                  femme(tata)
-                  monocotyledone (phanérogame 1-cotyledone)
-                  ))
+; (define BC '(
+;              Homme(toto)
+;                   femme(tata)
+;                   monocotyledone (phanérogame 1-cotyledone)
+;                   ))
 
 (class object%
   (super-new)
@@ -28,7 +28,7 @@
       ;(define tata #t)(display tata))
   )
 
-  
+
 
 (define Homme%
   (class object%
@@ -53,6 +53,7 @@
 
   (define/public (pere x y)
             (eqv? x y))
+
 
 
   (define/public (mere x y)
@@ -86,6 +87,9 @@
             
   )
 )
+
+
+
 
 ;;construction de l'Arbre
 
@@ -163,14 +167,7 @@
 )
 
 
-  
-      
-
-  
-
-
-
-(display "**************************************")(newline)
+  (display "**************************************")(newline)
 ;(send  (new Femme%) tata)
 
 ;(send (new Famille%) neuveu(send (new Homme%) toto "?")(send (new Homme%) toto "?"))
@@ -178,7 +175,7 @@
 ;(send (new Femme%) tata "?")
 
 
-(send (new Famille%) parent (send (new Homme%) toto "?")(send (new Femme%) tata "?"))(newline)
+(send (new Homme%) tata "?" )(newline)
 
 (display "**************************************")(newline)
 
