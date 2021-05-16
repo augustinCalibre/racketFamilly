@@ -1,4 +1,4 @@
-#lang racket
+I#lang racket
 
 ;******************* :AUGUSTIN GRAH*********************
 ;*******************git:augustCalibre*******************
@@ -9,13 +9,14 @@
          [(internal-coq-au-vin coq-au-vin) 'stewing]))
 
 
+;Initialisation  des hommes du projets 
 
 
-
- ;Liste Homme
+ 
 (define Homme(list "mankou" "toto" "froto" "manu" "ali" "pépé" "yao"))
 
-;Liste Femme
+;Initialisation  des femmes du projets 
+
 (define Femme(list "tata" "titi" "fitini" "adjoua" "mamie" "fatou"))  
      
   
@@ -124,7 +125,7 @@
 
 
 
-;;construction de l'Arbre
+;;construction de l'Arbre Généalogique  pour repondre à  la deuxième  partie du projet.
 
 (define ArbreGenealogique%
 (class object%
@@ -140,21 +141,25 @@
       [(string=? x "fatou")(display "ali")]
       [(string=? x "froto")(display "mankou")]
       [(string=? x "pépé")(display "froto")]
-      [else "pas de papa"])
-    
+      [else "pas de papa"])  
   )
   
 
   (define/public (ancetre x )
     (display "*les ancetres de  ")(display x) (display " :      ** ") (newline)
     (cond 
-    [(string=? x "adjoua")(display "fitini,titi,toto,mankou,mamie")];a continuer avec mami 
+    [(string=? x "adjoua")(display "fitini,titi,toto,mankou,mamie")]
     [(string=? x "yao")(display "ali,toto,tata,mankou,mamie")]
     [(string=? x "manu")(display "ali,toto,tata,mankou,mamie")]
     [(string=? x "fatou")(display "ali,toto,tata,mankou,mamie")]
     [(string=? x "ali")(display "toto,tata,mankou,mamie")]
-    [(string=? x "toto")(display "*mankou,mamie                      **")]
+    [(string=? x "toto")(display "mankou,mamie"]                   **")]
     [(string=? x "mankou")(display "mamie")]
+    [(string=? x "fitini")(display "titie ,toto,mankou,mamie")]
+[(string=? x "titi")(display "toto ,mankou,mamie")]
+[(string=? x "toto")(display "mankoue,mamie")]
+[(string=? x "pepe")(display "froto,mankou,mami")]
+[(string=? x "froto")(display "mankou,mamie")]
     [else "pas d'ancetre"])
 
   )
@@ -167,21 +172,15 @@
     
   )
 
-  (define/public (petitFils x )
-    (cond 
-    [(string=? x "mamie")(display "mankou, toto, froto, manu, ali, pépé")]
-      
-      [else "pas de petits enfants"]
-))
-
-
 ;;; TODO  1
 
 (define/public (frere x )
     (cond 
     [(string=? x "fatou")(display "yao, manu")]
-      
-      
+
+      [(string=? x "yao")(display "fatou, manu")]
+      [(string=? x "fatou")(display "yao, manu")]
+[(string=? x "manu")(display "yao, fatou")]
       [else "pas de petits enfants"]
 ))
 
