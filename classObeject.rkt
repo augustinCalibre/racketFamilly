@@ -3,8 +3,6 @@
 ;******************* :AUGUSTIN GRAH*********************
 ;*******************git:augustCalibre*******************
 
-(require json)
-
 (class object%
   (super-new)
   (field [minestrone 'ready]
