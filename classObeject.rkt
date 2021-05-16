@@ -3,11 +3,7 @@
 ;******************* :AUGUSTIN GRAH*********************
 ;*******************git:augustCalibre*******************
 
-; (define BC '(
-;              Homme(toto)
-;                   femme(tata)
-;                   monocotyledone (phanérogame 1-cotyledone)
-;                   ))
+(require json)
 
 (class object%
   (super-new)
@@ -18,26 +14,65 @@
 
 
 
-(define Femme%
-  (class object%
-     (super-new)
-      ;(define tru #t)(define false #f)
-    
-      (define/public (tata x)(eqv? x "?" )))
-      
-      ;(define tata #t)(display tata))
+ ;Liste Homme
+(define Homme(list "mankou" "toto" "froto" "manu" "ali" "pépé" "yao"))
+
+;Liste Femme
+(define Femme(list "tata" "titi" "fitini" "adjoua" "mamie" "fatou"))  
+     
+  
+;Fonction Homme
+(define (homme x)
+  (define rep #f)
+  (for([i(in-list Homme)])
+    (if(eq? x i)
+       (set! rep #t)
+       (set! rep rep)
+       )
+       )
+  rep
+  )
+
+;Fonction Femme
+(define (femme x)
+  (define rep #f)
+  (for([i(in-list Femme)])
+    (if(eq? x i)
+       (set! rep #t)
+       (set! rep rep)
+       )
+    )
+  rep
   )
 
 
+(define my-parent
 
-(define Homme%
-  (class object%
-     (super-new)
-    
-      ;(define tru #t)(define false #f)
-    
-      (define/public (toto x)(eqv? x "?" ))
-   ))
+  '((parent-toto tata  )
+  (parent-toto  vava  )
+
+  (parent-toto  zozo  )
+  (parent-toto  zaza  )
+  
+  )
+)
+
+(define (Parent  parent neuveu)
+   (cond
+   [(empty? parent)(display #f)(newline)]
+   [(equal? neuveu (second (first parent)))]
+   [else (Parent (rest parent) neuveu)]
+
+  )
+)
+
+(Parent my-parent   'zaza )
+
+
+
+
+
+
 
 
 (define Famille%
@@ -123,12 +158,12 @@
     [(string=? x "toto")(display "*mankou,mamie                      **")]
     [(string=? x "mankou")(display "mamie")]
     [else "pas d'ancetre"])
-    
+
   )
 
   (define/public (petitEnfants x )
     (cond 
-    [(string=? x "mamie")(display "mankou, toto, froto, manu, ali, pépé ,titi, fitini, adjoua,mamie et fatou  ")]
+    [(string=? x "mamie")(display "toto, froto, manu, ali, pépé ,titi, fitini, adjoua,mamie et fatou  ")]
       
       [else "pas de petits enfants"])
     
@@ -175,7 +210,10 @@
 ;(send (new Femme%) tata "?")
 
 
-(send (new Homme%) tata "?" )(newline)
+
+; (femme "titi")
+
+; (send (new ArbreGenealogique%) petitFils  "mamie" )(newline)
 
 (display "**************************************")(newline)
 
